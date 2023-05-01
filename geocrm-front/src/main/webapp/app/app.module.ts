@@ -16,9 +16,9 @@ import dayjs from 'dayjs/esm';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { AppRoutingModule } from './app-routing.module';
+import { GeocrmModule } from './components/geocrm/geocrm.module';
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
 import { fontAwesomeIcons } from './config/font-awesome-icons';
-import { GeocrmModule } from './entities/crm/geocrm.module';
 import { HomeModule } from './home/home.module';
 import { ErrorComponent } from './layouts/error/error.component';
 import { FooterComponent } from './layouts/footer/footer.component';

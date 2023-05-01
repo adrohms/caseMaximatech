@@ -4,7 +4,7 @@ import { SharedModule } from 'app/shared/shared.module';
 
 import { GeocrmComponent } from './geocrm.component';
 import { MaxMapComponent } from './max-map/max-map.component';
-import { ClientFilterComponent } from './person-filter/person-filter.component';
+import { PersonFilterComponent } from './person-filter/person-filter.component';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { GeocrmRoutingModule } from './route/geocrm-routing.module';
 
@@ -18,7 +18,7 @@ import { GeocrmRoutingModule } from './route/geocrm-routing.module';
     GeocrmComponent,
     MaxMapComponent,
     PersonFormComponent,
-    ClientFilterComponent
+    PersonFilterComponent
   ]
 })
 export class GeocrmModule { }

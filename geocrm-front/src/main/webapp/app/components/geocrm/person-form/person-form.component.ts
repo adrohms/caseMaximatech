@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'max-client-form',
-  templateUrl: './client-form.component.html',
-  styleUrls: ['./client-form.component.scss']
+  selector: 'max-person-form',
+  templateUrl: './person-form.component.html',
+  styleUrls: ['./person-form.component.scss']
 })
 export class PersonFormComponent implements OnInit {
 

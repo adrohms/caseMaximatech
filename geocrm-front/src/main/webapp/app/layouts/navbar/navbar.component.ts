@@ -6,7 +6,7 @@ import { Account } from 'app/core/auth/account.model';
 import { AccountService } from 'app/core/auth/account.service';
 import { LoginService } from 'app/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
-import { EntityNavbarItems } from 'app/entities/entity-navbar-items';
+import { EntityNavbarItems } from 'app/components/entity-navbar-items';
 
 @Component({
   selector: 'max-navbar',

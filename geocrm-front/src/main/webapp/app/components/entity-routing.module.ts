@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
       {
         path: 'geo-crm',
         data: { pageTitle: 'Geo CRM'},
-        loadChildren: () => import('./crm/geocrm.module').then(m => m.GeocrmModule),
+        loadChildren: () => import('./geocrm/geocrm.module').then(m => m.GeocrmModule),
       },
     ]),
   ],
