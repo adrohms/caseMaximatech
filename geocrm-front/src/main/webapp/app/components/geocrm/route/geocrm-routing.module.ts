@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access.service';
 import { GeocrmRoutingResolveService } from './geocrm-routing-resolve.service';
 import { GeocrmComponent } from '../geocrm.component';
-import { ClientFormComponent } from '../client-form/client-form.component';
+import { PersonFormComponent } from '../person-form/person-form.component';
 
 const geocrmRoute: Routes = [
   {
@@ -14,7 +14,7 @@ const geocrmRoute: Routes = [
   },
   {
     path: ':id',
-    component: ClientFormComponent,
+    component: PersonFormComponent,
     resolve: {
       geocrm: GeocrmRoutingResolveService,
     },

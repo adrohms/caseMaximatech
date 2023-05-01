@@ -5,9 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './client-form.component.html',
   styleUrls: ['./client-form.component.scss']
 })
-export class ClientFormComponent implements OnInit {
+export class PersonFormComponent implements OnInit {
 
   ngOnInit(): void {
-    console.log("Fuck");
+    console.log("Ops!");
   }
 }

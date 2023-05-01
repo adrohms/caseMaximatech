@@ -10,7 +10,7 @@ export class GeocrmComponent implements OnInit {
   @ViewChild(MatAccordion) accordion?: MatAccordion;
 
   ngOnInit(): void {
-    console.log("Fuck");
+    console.log("Ops!");
   }
 
 }

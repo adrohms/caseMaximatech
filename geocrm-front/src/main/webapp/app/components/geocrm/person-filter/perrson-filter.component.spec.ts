@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ClientFilterComponent } from './client-filter.component';
+import { ClientFilterComponent } from './person-filter.component';
 
 describe('ClientFilterComponent', () => {
   let component: ClientFilterComponent;
