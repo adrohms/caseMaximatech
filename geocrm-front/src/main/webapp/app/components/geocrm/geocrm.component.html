@@ -3,33 +3,32 @@
   <mat-expansion-panel class="max-panel">
     <mat-expansion-panel-header class="max-panel-head">
       <mat-panel-title class="max-panel-head-title">
-        Filtro de clientes
+        <mat-icon>search</mat-icon>
+        <span>Buscar clientes</span>
       </mat-panel-title>
-
-      <mat-icon>search</mat-icon>
-
     </mat-expansion-panel-header>
 
-  </mat-expansion-panel>
-
-
-  <mat-expansion-panel class="max-panel">
-    <mat-expansion-panel-header class="max-panel-head">
-      <mat-panel-title class="max-panel-head-title">
-        Listagem de clietnes
-      </mat-panel-title>
-
-      <mat-icon>list</mat-icon>
-    </mat-expansion-panel-header>
+    <max-person-filter>
+    </max-person-filter>
   </mat-expansion-panel>
 
   <mat-expansion-panel class="max-panel">
     <mat-expansion-panel-header class="max-panel-head">
       <mat-panel-title class="max-panel-head-title">
-        Geolocalização de clientes
+        <mat-icon>list</mat-icon>
+        <span>Listagem dos clientes</span>
       </mat-panel-title>
+    </mat-expansion-panel-header>
 
-      <mat-icon>map</mat-icon>
+    <max-person-list></max-person-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="max-panel">
+    <mat-expansion-panel-header class="max-panel-head">
+      <mat-panel-title class="max-panel-head-title">
+        <mat-icon>map</mat-icon>
+        <span>Geolocalização dos clientes</span>
+      </mat-panel-title>
     </mat-expansion-panel-header>
 
     <max-map></max-map>

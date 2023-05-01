@@ -13,13 +13,23 @@ const geocrmRoute: Routes = [
     canActivate: [UserRouteAccessService],
   },
   {
-    path: ':id',
+    path: 'form',
     component: PersonFormComponent,
     resolve: {
       geocrm: GeocrmRoutingResolveService,
     },
     canActivate: [UserRouteAccessService],
-  }
+    children: [
+      {
+        path: ':id',
+        component: PersonFormComponent,
+        resolve: {
+          geocrm: GeocrmRoutingResolveService,
+        }
+      }
+    ]
+  },
+
 ];
 
 @NgModule({
