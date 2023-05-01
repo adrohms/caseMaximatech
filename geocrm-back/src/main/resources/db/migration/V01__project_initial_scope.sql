@@ -1,5 +1,5 @@
 -- Initial scope
-CREATE TABLE MAX_USER (
+CREATE TABLE IF NOT EXISTS MAX_USER (
                           id SERIAL PRIMARY KEY,
                           login VARCHAR(50) NOT NULL,
                           password_hash VARCHAR(60) NOT NULL,
@@ -20,13 +20,13 @@ CREATE TABLE MAX_USER (
                           CONSTRAINT uq_user_login UNIQUE (login)
 );
 
-CREATE TABLE MAX_AUTHORITY (
+CREATE TABLE IF NOT EXISTS MAX_AUTHORITY (
     permission_name VARCHAR(50) NOT NULL,
     CONSTRAINT max_authority_pkey PRIMARY KEY (permission_name)
 );
 
 
-CREATE TABLE MAX_USER_AUTHORITY (
+CREATE TABLE IF NOT EXISTS MAX_USER_AUTHORITY (
     user_id BIGINT NOT NULL,
     authority_permission_name VARCHAR(50) NOT NULL,
     CONSTRAINT max_user_authority_pkey PRIMARY KEY (user_id, authority_permission_name),
@@ -35,7 +35,7 @@ CREATE TABLE MAX_USER_AUTHORITY (
 );
 
 
-CREATE TABLE MAX_PERSON (
+CREATE TABLE IF NOT EXISTS MAX_PERSON (
                         id SERIAL PRIMARY KEY,
                         code VARCHAR(255) NOT NULL,
                         name VARCHAR(255) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE MAX_PERSON (
                         CONSTRAINT uq_person_code UNIQUE (code)
 );
 
-CREATE TABLE MAX_ADDRESS (
+CREATE TABLE IF NOT EXISTS MAX_ADDRESS (
                          id SERIAL PRIMARY KEY,
                          street VARCHAR(255) NOT NULL,
                          city VARCHAR(255) NOT NULL,

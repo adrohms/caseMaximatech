@@ -9,7 +9,7 @@ import { ProfileService } from 'app/layouts/profiles/profile.service';
 import { EntityNavbarItems } from 'app/entities/entity-navbar-items';
 
 @Component({
-  selector: 'jhi-navbar',
+  selector: 'max-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })

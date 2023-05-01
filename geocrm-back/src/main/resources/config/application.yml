@@ -161,8 +161,7 @@ flyway:
   locations: classpath:db/migration
   baseline-on-migrate: true
   sql-migration-prefix: V
-  schemas: '*'
-
+  schemas: 'public'
 
 server:
   servlet:

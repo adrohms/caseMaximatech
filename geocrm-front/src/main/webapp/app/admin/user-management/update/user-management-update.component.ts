@@ -12,7 +12,7 @@ const newUser: IUser = {
 } as IUser;
 
 @Component({
-  selector: 'jhi-user-mgmt-update',
+  selector: 'max-user-mgmt-update',
   templateUrl: './user-management-update.component.html',
 })
 export class UserManagementUpdateComponent implements OnInit {

@@ -5,7 +5,7 @@ import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 import { AccountService } from 'app/core/auth/account.service';
 
 @Component({
-  selector: 'jhi-main',
+  selector: 'max-main',
   templateUrl: './main.component.html',
 })
 export class MainComponent implements OnInit {
@@ -33,7 +33,7 @@ export class MainComponent implements OnInit {
   private updateTitle(): void {
     let pageTitle = this.getPageTitle(this.router.routerState.snapshot.root);
     if (!pageTitle) {
-      pageTitle = 'Geocrm';
+      pageTitle = 'GeoCrm';
     }
     this.titleService.setTitle(pageTitle);
   }

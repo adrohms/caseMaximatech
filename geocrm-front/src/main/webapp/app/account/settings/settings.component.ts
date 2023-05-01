@@ -7,7 +7,7 @@ import { Account } from 'app/core/auth/account.model';
 const initialAccount: Account = {} as Account;
 
 @Component({
-  selector: 'jhi-settings',
+  selector: 'max-settings',
   templateUrl: './settings.component.html',
 })
 export class SettingsComponent implements OnInit {

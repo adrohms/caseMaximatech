@@ -1,42 +1,23 @@
-package com.maxima.geocrm.domain.person;
+package com.maxima.geocrm.service.dto;
 
-import com.maxima.geocrm.domain.AbstractAuditingEntity;
 import com.maxima.geocrm.domain.person.aggregate.Address;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "max_person")
-public class Person extends AbstractAuditingEntity<Long> implements Serializable  {
 
-    private static final long serialVersionUID = 1L;
+public class PersonDTO  {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
-
-    @Column(name = "code", nullable = false, unique = true)
     private String code;
-
-    @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "email", nullable = false)
     private String email;
-
-    @Column(name = "phone", nullable = false)
     private String phone;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
 
-    public Person() {}
+    public PersonDTO() {}
 
-    public Person(Long id, String code, String name, String email, String phone, List<Address> addresses) {
+    public PersonDTO(Long id, String code, String name, String email, String phone, List<Address> addresses) {
         this.id = id;
         this.code = code;
         this.name = name;
@@ -45,9 +26,12 @@ public class Person extends AbstractAuditingEntity<Long> implements Serializable
         this.addresses = addresses;
     }
 
-    @Override
     public Long getId() {
-        return this.id;
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCode() {
