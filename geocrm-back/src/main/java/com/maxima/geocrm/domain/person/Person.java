@@ -25,6 +25,9 @@ public class Person extends AbstractAuditingEntity<Long> implements Serializable
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "tax_id", nullable = false)
+    private String taxId;
+
     @Column(name = "email", nullable = false)
     private String email;
 
@@ -36,10 +39,11 @@ public class Person extends AbstractAuditingEntity<Long> implements Serializable
 
     public Person() {}
 
-    public Person(Long id, String code, String name, String email, String phone, List<Address> addresses) {
+    public Person(Long id, String code, String name, String taxId, String email, String phone, List<Address> addresses) {
         this.id = id;
         this.code = code;
         this.name = name;
+        this.taxId = taxId;
         this.email = email;
         this.phone = phone;
         this.addresses = addresses;
@@ -64,6 +68,14 @@ public class Person extends AbstractAuditingEntity<Long> implements Serializable
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTaxId() {
+        return taxId;
+    }
+
+    public void setTaxId(String taxId) {
+        this.taxId = taxId;
     }
 
     public String getEmail() {

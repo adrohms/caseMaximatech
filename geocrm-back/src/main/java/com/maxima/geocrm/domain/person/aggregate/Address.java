@@ -5,6 +5,7 @@ import com.maxima.geocrm.domain.person.Person;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "max_address")
@@ -27,7 +28,7 @@ private static final long serialVersionUID = 1L;
     private String state;
 
     @Column(name = "zip", nullable = false)
-    private String zip;
+    private String cep;
 
     @Column(name = "country", nullable = false)
     private String country = "Brazil";
@@ -36,16 +37,25 @@ private static final long serialVersionUID = 1L;
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
+    @Column
+    private BigDecimal latitude;
+
+    @Column
+    private BigDecimal longitude;
+
     public Address() {}
 
-    public Address(Long id, String street, String city, String state, String zip, String country, Person person) {
+    public Address(Long id, String street, String city, String state,
+                   String cep, String country, Person person, BigDecimal latitude, BigDecimal longitude) {
         this.id = id;
         this.street = street;
         this.city = city;
         this.state = state;
-        this.zip = zip;
+        this.cep = cep;
         this.country = country;
         this.person = person;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     @Override
@@ -77,12 +87,12 @@ private static final long serialVersionUID = 1L;
         this.state = state;
     }
 
-    public String getZip() {
-        return zip;
+    public String getCep() {
+        return cep;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public String getCountry() {
@@ -99,5 +109,21 @@ private static final long serialVersionUID = 1L;
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
     }
 }

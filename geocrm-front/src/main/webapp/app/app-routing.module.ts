@@ -1,3 +1,4 @@
+import { GeocrmModule } from './entities/crm/geocrm.module';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 

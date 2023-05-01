@@ -15,6 +15,7 @@ public class ObjectMapper implements IObjectMapper {
             personDTO.getId(),
             personDTO.getCode(),
             personDTO.getName(),
+            personDTO.getTaxId(),
             personDTO.getEmail(),
             personDTO.getPhone(),
             personDTO.getAddresses()
@@ -27,6 +28,7 @@ public class ObjectMapper implements IObjectMapper {
             person.getId(),
             person.getCode(),
             person.getName(),
+            person.getTaxId(),
             person.getEmail(),
             person.getPhone(),
             person.getAddresses()
@@ -40,9 +42,11 @@ public class ObjectMapper implements IObjectMapper {
             addressDTO.getStreet(),
             addressDTO.getCity(),
             addressDTO.getState(),
-            addressDTO.getZip(),
+            addressDTO.getCep(),
             addressDTO.getCountry(),
-            addressDTO.getPerson()
+            addressDTO.getPerson(),
+            addressDTO.getLatitude(),
+            addressDTO.getLongitude()
         );
     }
 
@@ -53,9 +57,11 @@ public class ObjectMapper implements IObjectMapper {
             address.getStreet(),
             address.getCity(),
             address.getState(),
-            address.getZip(),
+            address.getCep(),
             address.getCountry(),
-            address.getPerson()
+            address.getPerson(),
+            address.getLatitude(),
+            address.getLongitude()
         );
     }
 }

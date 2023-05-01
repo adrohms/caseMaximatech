@@ -10,5 +10,5 @@ ${AnsiColor.BRIGHT_WHITE}██║ ╚═╝ ██║██║  ██║██
 ${AnsiColor.BRIGHT_WHITE}╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ${AnsiColor.BRIGHT_WHITE}   ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝
 
 
-${AnsiColor.BRIGHT_BLUE}:: maxGEO-CRM  :: Running Spring Boot ${spring-boot.version} ::
+${AnsiColor.BRIGHT_BLUE}:: Max GeoCRM  :: Running Spring Boot ${spring-boot.version} ::
 :: https://maximatech.com.br ::${AnsiColor.DEFAULT}

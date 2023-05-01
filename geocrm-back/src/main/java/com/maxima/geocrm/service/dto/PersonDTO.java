@@ -11,16 +11,18 @@ public class PersonDTO  {
     private Long id;
     private String code;
     private String name;
+    private String taxId;
     private String email;
     private String phone;
     private List<Address> addresses = new ArrayList<>();
 
     public PersonDTO() {}
 
-    public PersonDTO(Long id, String code, String name, String email, String phone, List<Address> addresses) {
+    public PersonDTO(Long id, String code, String name, String taxId, String email, String phone, List<Address> addresses) {
         this.id = id;
         this.code = code;
         this.name = name;
+        this.taxId = taxId;
         this.email = email;
         this.phone = phone;
         this.addresses = addresses;
@@ -44,6 +46,14 @@ public class PersonDTO  {
 
     public String getName() {
         return name;
+    }
+
+    public String getTaxId() {
+        return taxId;
+    }
+
+    public void setTaxId(String taxId) {
+        this.taxId = taxId;
     }
 
     public void setName(String name) {

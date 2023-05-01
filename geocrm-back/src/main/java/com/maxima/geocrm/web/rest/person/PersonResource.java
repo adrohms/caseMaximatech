@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -87,16 +88,25 @@ public class PersonResource {
             .body(person);
     }
 
-    @GetMapping("/person/all")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
-    public List<Person> getAllPersons(@ParameterObject Pageable pageable) {
-        log.debug("Get all Persons for an admin");
-        return personRepository.findAll();
+    @GetMapping("/person/persons")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
+    public Page<Person> getAllPersons(
+        @RequestParam(name = "id", required = false) Long id,
+        @RequestParam(name = "code", required = false) String code,
+        @RequestParam(name = "name", required = false) String name,
+        @RequestParam(name = "taxId", required = false) String taxId,
+        @RequestParam(name = "email", required = false) String email,
+        @RequestParam(name = "phone", required = false) String phone,
+        @ParameterObject Pageable pageable
+    ) {
+        log.debug("Get persons by filter");
+        return personService.findAllPaginated(id, code, name, taxId, email, phone, pageable
+        );
     }
 
     @GetMapping("/person/{id}")
     @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
-    public ResponseEntity<Person> getPersonById(@PathVariable Long id) {
+    public ResponseEntity<Person> getPersonByPersonId(@PathVariable Long id) {
         log.debug("REST request to get Person : {}", id);
         Optional<Person> person = personRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(person);

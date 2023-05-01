@@ -5,6 +5,8 @@ import com.maxima.geocrm.repository.PersonRepository;
 import com.maxima.geocrm.service.dto.PersonDTO;
 import com.maxima.geocrm.service.mapper.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,18 +23,21 @@ public class PersonService {
     }
 
     public void updatePerson(PersonDTO personDTO) {
-
+        this.personRepository.save(objectMapper.dtoToEntity(personDTO));
     }
 
-    public Person getPersonById(Integer personId) {
-        return personRepository.findById(Long.valueOf(personId)).get();
+    public Person getPersonById(Long personId) {
+        return personRepository.findById(personId).get();
     }
 
     public Boolean existsById(Long id) {
         return personRepository.existsById(id);
     }
 
-
+    public Page<Person> findAllPaginated(Long id, String code, String name,
+                                         String taxId, String email, String phone, Pageable pageable) {
+        return this.personRepository.findByFilter(id, code, name, taxId, email, phone, pageable);
+    }
 
 
 }

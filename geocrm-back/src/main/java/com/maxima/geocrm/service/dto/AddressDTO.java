@@ -2,6 +2,8 @@ package com.maxima.geocrm.service.dto;
 
 import com.maxima.geocrm.domain.person.Person;
 
+import java.math.BigDecimal;
+
 public class AddressDTO  {
 
 
@@ -10,20 +12,25 @@ public class AddressDTO  {
     private String street;
     private String city;
     private String state;
-    private String zip;
+    private String cep;
     private String country = "Brazil";
     private Person person;
+    private BigDecimal latitude;
+    private BigDecimal longitude;
 
     public AddressDTO() {}
 
-    public AddressDTO(Long id, String street, String city, String state, String zip, String country, Person person) {
+    public AddressDTO(Long id, String street, String city, String state,
+                      String cep, String country, Person person, BigDecimal latitude, BigDecimal longitude) {
         this.id = id;
         this.street = street;
         this.city = city;
         this.state = state;
-        this.zip = zip;
+        this.cep = cep;
         this.country = country;
         this.person = person;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public Long getId() {
@@ -58,12 +65,12 @@ public class AddressDTO  {
         this.state = state;
     }
 
-    public String getZip() {
-        return zip;
+    public String getCep() {
+        return cep;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public String getCountry() {
@@ -80,5 +87,21 @@ public class AddressDTO  {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
     }
 }

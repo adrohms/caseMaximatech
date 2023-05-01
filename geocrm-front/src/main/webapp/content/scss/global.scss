@@ -77,8 +77,21 @@ Generic styles
   opacity: 1;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95vh;
+
+  &:last-child {
+    align-self: flex-end;
+  }
+}
+
 .footer {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: center;
 }
 
 .hand,

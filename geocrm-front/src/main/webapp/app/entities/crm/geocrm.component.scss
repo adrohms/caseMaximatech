@@ -1,0 +1,26 @@
+
+
+.max-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .max-panel {
+    box-shadow: 0 1px 1px 1px;
+  }
+
+  .max-panel-head {
+    display: flex;
+    .max-panel-head-title {
+      font-size: 26px;
+      font-weight: 400;
+
+    }
+
+    &:last-child {
+      align-self: flex-end;
+    }
+  }
+}
+
+
