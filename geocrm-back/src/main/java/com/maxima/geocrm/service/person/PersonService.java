@@ -1,6 +1,7 @@
 package com.maxima.geocrm.service.person;
 
 import com.maxima.geocrm.domain.person.Person;
+import com.maxima.geocrm.domain.person.aggregate.Address;
 import com.maxima.geocrm.repository.PersonRepository;
 import com.maxima.geocrm.service.dto.PersonDTO;
 import com.maxima.geocrm.service.mapper.ObjectMapper;
@@ -19,6 +20,7 @@ public class PersonService {
 
     public Person createPerson(PersonDTO personDTO) {
         Person person = objectMapper.dtoToEntity(personDTO);
+        person.getAddresses().forEach(address -> address.setPerson(person));
         return this.personRepository.save(person);
     }
 

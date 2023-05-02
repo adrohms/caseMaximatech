@@ -10,6 +10,7 @@ public class AddressDTO  {
 
     private Long id;
     private String street;
+    private String sector;
     private String city;
     private String state;
     private String cep;
@@ -20,10 +21,11 @@ public class AddressDTO  {
 
     public AddressDTO() {}
 
-    public AddressDTO(Long id, String street, String city, String state,
+    public AddressDTO(Long id, String street, String sector, String city, String state,
                       String cep, String country, Person person, BigDecimal latitude, BigDecimal longitude) {
         this.id = id;
         this.street = street;
+        this.sector = sector;
         this.city = city;
         this.state = state;
         this.cep = cep;
@@ -47,6 +49,14 @@ public class AddressDTO  {
 
     public void setStreet(String street) {
         this.street = street;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
     }
 
     public String getCity() {

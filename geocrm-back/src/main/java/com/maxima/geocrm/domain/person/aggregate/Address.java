@@ -1,5 +1,6 @@
 package com.maxima.geocrm.domain.person.aggregate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.maxima.geocrm.domain.AbstractAuditingEntity;
 import com.maxima.geocrm.domain.person.Person;
 
@@ -11,15 +12,18 @@ import java.math.BigDecimal;
 @Table(name = "max_address")
 public class Address extends AbstractAuditingEntity<Long> implements Serializable {
 
-private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "addressSequence")
+    @SequenceGenerator(name = "addressSequence")
     private Long id;
 
     @Column(name = "street", nullable = false)
     private String street;
+
+    @Column(name = "sector", nullable = false)
+    private String sector;
 
     @Column(name = "city", nullable = false)
     private String city;
@@ -27,12 +31,13 @@ private static final long serialVersionUID = 1L;
     @Column(name = "state", nullable = false)
     private String state;
 
-    @Column(name = "zip", nullable = false)
+    @Column(nullable = false)
     private String cep;
 
     @Column(name = "country", nullable = false)
     private String country = "Brazil";
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
@@ -45,10 +50,11 @@ private static final long serialVersionUID = 1L;
 
     public Address() {}
 
-    public Address(Long id, String street, String city, String state,
+    public Address(Long id, String street, String sector, String city, String state,
                    String cep, String country, Person person, BigDecimal latitude, BigDecimal longitude) {
         this.id = id;
         this.street = street;
+        this.sector = sector;
         this.city = city;
         this.state = state;
         this.cep = cep;
@@ -69,6 +75,14 @@ private static final long serialVersionUID = 1L;
 
     public void setStreet(String street) {
         this.street = street;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
     }
 
     public String getCity() {

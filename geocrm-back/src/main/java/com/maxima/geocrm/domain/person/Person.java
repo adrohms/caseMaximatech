@@ -15,8 +15,8 @@ public class Person extends AbstractAuditingEntity<Long> implements Serializable
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "personSequence")
+    @SequenceGenerator(name = "personSequence")
     private Long id;
 
     @Column(name = "code", nullable = false, unique = true)
@@ -34,7 +34,7 @@ public class Person extends AbstractAuditingEntity<Long> implements Serializable
     @Column(name = "phone", nullable = false)
     private String phone;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "person")
     private List<Address> addresses = new ArrayList<>();
 
     public Person() {}

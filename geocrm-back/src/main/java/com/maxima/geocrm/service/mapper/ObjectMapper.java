@@ -40,6 +40,7 @@ public class ObjectMapper implements IObjectMapper {
         return new Address(
             addressDTO.getId(),
             addressDTO.getStreet(),
+            addressDTO.getSector(),
             addressDTO.getCity(),
             addressDTO.getState(),
             addressDTO.getCep(),
@@ -55,6 +56,7 @@ public class ObjectMapper implements IObjectMapper {
         return new AddressDTO(
             address.getId(),
             address.getStreet(),
+            address.getSector(),
             address.getCity(),
             address.getState(),
             address.getCep(),
