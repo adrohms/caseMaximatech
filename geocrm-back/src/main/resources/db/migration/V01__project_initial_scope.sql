@@ -1,8 +1,4 @@
 -- Initial scope
-CREATE SEQUENCE user_sequence START 1;
-CREATE SEQUENCE person_sequence START 1;
-CREATE SEQUENCE address_sequence START 1;
-
 CREATE TABLE IF NOT EXISTS MAX_USER (
                           id SERIAL PRIMARY KEY,
                           login VARCHAR(50) NOT NULL,
@@ -70,6 +66,10 @@ CREATE TABLE IF NOT EXISTS MAX_ADDRESS (
                          last_modified_date TIMESTAMP NULL,
                          CONSTRAINT fk_address_person FOREIGN KEY (person_id) REFERENCES max_person(id)
 );
+
+CREATE SEQUENCE person_sequence START 1;
+CREATE SEQUENCE address_sequence START 1;
+CREATE SEQUENCE user_sequence START 1;
 
 -- initial user data
 

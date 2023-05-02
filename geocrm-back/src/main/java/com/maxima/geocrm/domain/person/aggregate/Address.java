@@ -15,8 +15,8 @@ public class Address extends AbstractAuditingEntity<Long> implements Serializabl
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "addressSequence")
-    @SequenceGenerator(name = "addressSequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "addressGenerator")
+    @SequenceGenerator(name = "addressGenerator", sequenceName = "addressSequence", allocationSize=1)
     private Long id;
 
     @Column(name = "street", nullable = false)

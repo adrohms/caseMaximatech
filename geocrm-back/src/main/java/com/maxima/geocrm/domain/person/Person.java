@@ -15,8 +15,8 @@ public class Person extends AbstractAuditingEntity<Long> implements Serializable
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "personSequence")
-    @SequenceGenerator(name = "personSequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "personGenerator")
+    @SequenceGenerator(name = "personGenerator", sequenceName = "personSequence", allocationSize=1)
     private Long id;
 
     @Column(name = "code", nullable = false, unique = true)
