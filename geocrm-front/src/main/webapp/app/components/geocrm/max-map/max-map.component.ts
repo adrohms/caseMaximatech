@@ -11,7 +11,6 @@ import { PersonService } from '../services/person.service';
 })
 export class MaxMapComponent implements OnInit {
 
-  public addresses?: IAddress[];
   public clientePositions?: IPosition[] = [];
 
   constructor(

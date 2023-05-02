@@ -14,7 +14,6 @@ import { PersonService } from '../services/person.service';
 export class PersonListComponent implements OnInit {
 
   public displayedColumns: string[] = ['id', 'name', 'taxId', 'code', 'email', 'phone'];
-  public paginatedPersons$?: Observable<IPage<IPerson>>;
   public dataSource: any;
 
   constructor(private personService: PersonService) {}
@@ -26,7 +25,6 @@ export class PersonListComponent implements OnInit {
         const personList: IPerson[] = value.content;
         this.dataSource = new MatTableDataSource(personList);
       }
-
     })
 
   }

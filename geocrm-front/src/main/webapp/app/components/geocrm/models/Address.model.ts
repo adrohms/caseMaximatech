@@ -1,5 +1,3 @@
-import { IPerson } from "./Person.model";
-
 export interface IAddress {
   id?: number;
   street?: string | null;
@@ -7,7 +5,6 @@ export interface IAddress {
   city?: string | null;
   state?: string | null;
   contry?: string | null;
-  person?: IPerson | null;
   latitude?: number | null;
   longitude?: number | null;
 }
@@ -20,7 +17,6 @@ export class Address implements IAddress {
     public city?: string | null,
     public state?: string | null,
     public contry?: string | null,
-    public person?: IPerson | null,
     public latitude?: number | null,
     public longitude?: number | null
   ) {}
