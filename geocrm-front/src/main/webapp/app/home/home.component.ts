@@ -34,5 +34,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
+  goToGeocrm(): void {
+    this.router.navigate(['/geo-crm']);
+  }
 
 }
