@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { IAddress } from '../models/Address.model';
+import { IPosition, LtnLng, Position } from '../models/Position.model';
+import { PersonService } from '../services/person.service';
 
 @Component({
   selector: 'max-map',
@@ -8,10 +11,29 @@ import { IAddress } from '../models/Address.model';
 })
 export class MaxMapComponent implements OnInit {
 
-  @Input() addresses?: IAddress[];
+  public addresses?: IAddress[];
+  public clientePositions?: IPosition[] = [];
+
+  constructor(
+    private personService: PersonService
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.addresses);
+    this.personService.persons$.subscribe(paginatedPersons => {
+      if(paginatedPersons?.content != null && paginatedPersons.content.length > 0) {
+        paginatedPersons.content.forEach(person => {
+          person.addresses?.forEach(address => {
+            if(address.latitude != null && address.longitude != null && person.id != null) {
+              this.clientePositions?.push(
+                new Position(new LtnLng(address.latitude, address.longitude), person.id.toString())
+              );
+            }
+          })
+
+        })
+      }
+
+    })
   }
 
 }

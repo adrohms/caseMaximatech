@@ -1,32 +1,32 @@
 <div>
   <form class="max-form-filter-container" name="personFormFilter" role="form" [formGroup]="personFilterForm" (ngSubmit)="applyFilter()">
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <label>Id</label>
       <input matInput formControlName="id">
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <label>Código</label >
       <input matInput formControlName="code">
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <label>Nome</label>
       <input matInput formControlName="name">
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <label>CNPJ</label>
       <input matInput formControlName="taxId">
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <label>Email</label >
       <input matInput formControlName="email" type="email">
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <label>Telefone</label>
       <input matInput formControlName="phone">
     </mat-form-field>
@@ -37,11 +37,13 @@
         id="save-entity"
         data-cy="entityCreateSaveButton"
         class="btn btn-primary">
-        <fa-icon icon="save"></fa-icon>&nbsp;<span> Pesquisar </span>
+        <mat-icon class="mat-18">search</mat-icon>
+        <span>Buscar</span>
       </button>
 
       <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="cleanFilter()">
-        <fa-icon icon="ban"></fa-icon>&nbsp;<span> Limpar Filtro </span>
+        <mat-icon class="mat-18">delete</mat-icon>
+        <span>Limpar</span>
       </button>
     </div>
 

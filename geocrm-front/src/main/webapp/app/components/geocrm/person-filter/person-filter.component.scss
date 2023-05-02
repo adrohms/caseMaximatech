@@ -10,6 +10,10 @@
 
   .max-filter-buttons:last-child {
     flex-basis: 100%;
+    button {
+      justify-items: center;
+      align-content: center;
+    }
   }
 
 }

@@ -1,3 +1,4 @@
+import { GoogleMapsModule } from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'app/shared/shared.module';
@@ -10,11 +11,13 @@ import { PersonListComponent } from './person-list/person-list.component';
 import { GeocrmRoutingModule } from './route/geocrm-routing.module';
 import { AddressFormComponent } from './person-form/address-form/address-form.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    GeocrmRoutingModule
+    GeocrmRoutingModule,
+    GoogleMapsModule
   ],
   declarations: [
     GeocrmComponent,

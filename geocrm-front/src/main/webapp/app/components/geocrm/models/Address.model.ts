@@ -8,8 +8,8 @@ export interface IAddress {
   state?: string | null;
   contry?: string | null;
   person?: IPerson | null;
-  latitude?: string | null;
-  longitude?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
 }
 
 export class Address implements IAddress {
@@ -21,8 +21,8 @@ export class Address implements IAddress {
     public state?: string | null,
     public contry?: string | null,
     public person?: IPerson | null,
-    public latitude?: string | null,
-    public longitude?: string | null
+    public latitude?: number | null,
+    public longitude?: number | null
   ) {}
 }
 

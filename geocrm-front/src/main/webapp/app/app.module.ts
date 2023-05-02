@@ -4,6 +4,7 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import locale from '@angular/common/locales/en';
 import { LOCALE_ID, NgModule } from '@angular/core';
+import { GoogleMapsModule } from '@angular/google-maps';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -38,6 +39,7 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
     NgxWebstorageModule.forRoot({ prefix: 'max', separator: '-', caseSensitive: true }),
     GeocrmModule,
     BrowserAnimationsModule,
+    GoogleMapsModule
   ],
   providers: [
     Title,
