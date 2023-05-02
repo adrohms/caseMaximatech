@@ -34,7 +34,7 @@ public class Person extends AbstractAuditingEntity<Long> implements Serializable
     @Column(name = "phone", nullable = false)
     private String phone;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "person")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "person", fetch = FetchType.EAGER)
     private List<Address> addresses = new ArrayList<>();
 
     public Person() {}
