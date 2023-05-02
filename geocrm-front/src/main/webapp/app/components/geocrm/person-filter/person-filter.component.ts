@@ -46,7 +46,8 @@ export class PersonFilterComponent implements OnInit {
   }
 
   cleanFilter(): void {
-    this.personFilterForm;
+    this.personFilterForm.reset();
+    this.applyFilter();
   }
 
   private createParamFromForm(): HttpParams {
