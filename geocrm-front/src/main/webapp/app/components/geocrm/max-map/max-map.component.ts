@@ -19,6 +19,7 @@ export class MaxMapComponent implements OnInit {
 
   ngOnInit(): void {
     this.personService.persons$.subscribe(paginatedPersons => {
+      this.clientePositions = [];
       if(paginatedPersons?.content != null && paginatedPersons.content.length > 0) {
         paginatedPersons.content.forEach(person => {
           person.addresses?.forEach(address => {
