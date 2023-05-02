@@ -100,8 +100,7 @@ public class PersonResource {
         @ParameterObject Pageable pageable
     ) {
         log.debug("Get persons by filter");
-        return personService.findAllPaginated(id, code, name, taxId, email, phone, pageable
-        );
+        return personService.findAllPaginated(id, code, name, taxId, email, phone, pageable);
     }
 
     @GetMapping("/person/{id}")

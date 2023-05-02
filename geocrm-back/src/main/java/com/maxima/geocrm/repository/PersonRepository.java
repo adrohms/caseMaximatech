@@ -12,11 +12,11 @@ import org.springframework.stereotype.Repository;
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
     @Query("FROM Person p WHERE(:id IS NULL OR :id = p.id) " +
-        "AND (:name IS NULL OR LOWER(:name) = LOWER(p.name)) " +
-        "AND (:code IS NULL OR :code = p.code) " +
-        "AND (:taxId IS NULL OR :taxId = p.taxId) " +
-        "AND (:email IS NULL OR :email = p.email) " +
-        "AND (:phone is NULL OR :phone = p.phone)"
+        "AND (:name IS NULL OR :name = '' OR LOWER(p.name) like LOWER(CONCAT('%',:name,'%'))) " +
+        "AND (:code IS NULL OR :code = '' OR p.code like CONCAT('%',:code,'%')) " +
+        "AND (:taxId IS NULL OR :taxId = '' OR p.taxId like CONCAT('%',:taxId,'%')) " +
+        "AND (:email IS NULL OR :email = '' OR p.email like LOWER(CONCAT('%',:email,'%'))) " +
+        "AND (:phone is NULL OR :phone = '' OR p.phone like CONCAT('%',:phone,'%'))"
     )
     Page<Person> findByFilter(
         @Param("id") Long id,

@@ -72,7 +72,6 @@ CREATE SEQUENCE address_sequence START 1;
 CREATE SEQUENCE user_sequence START 1;
 
 -- initial user data
-
 insert into max_user (id,login,password_hash,first_name,last_name,email,image_url,activated,lang_key,created_by,last_modified_by)
 values (1,'admin','$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC',
         'Maxima','Tech','maxtech@maxtech',null,true,'en','system','system');
