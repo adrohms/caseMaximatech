@@ -1,3 +1,31 @@
-<p>
-  client-form works!
-</p>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Código</mat-label >
+    <input matInput formControlName="code">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>CNPJ</mat-label>
+    <input matInput formControlName="taxId">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label >
+    <input matInput formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Telefone</mat-label>
+    <input matInput formControlName="phone">
+  </mat-form-field>
+
+  <div>
+    <max-address-form></max-address-form>
+  </div>
+
+</div>

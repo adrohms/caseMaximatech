@@ -1,0 +1,15 @@
+.max-form-filter-container {
+  padding-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .max-filter-buttons {
+    flex-grow: 1;
+  }
+
+  .max-filter-buttons:last-child {
+    flex-basis: 100%;
+  }
+
+}

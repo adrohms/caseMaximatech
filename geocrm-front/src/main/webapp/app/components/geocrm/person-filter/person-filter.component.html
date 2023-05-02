@@ -1,3 +1,49 @@
-<p>
-  client-filter works!
-</p>
+<div>
+  <form class="max-form-filter-container" name="personFormFilter" role="form" [formGroup]="personFilterForm" (ngSubmit)="applyFilter()">
+
+    <mat-form-field appearance="fill">
+      <label>Id</label>
+      <input matInput formControlName="id">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <label>Código</label >
+      <input matInput formControlName="code">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <label>Nome</label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <label>CNPJ</label>
+      <input matInput formControlName="taxId">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <label>Email</label >
+      <input matInput formControlName="email" type="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <label>Telefone</label>
+      <input matInput formControlName="phone">
+    </mat-form-field>
+
+    <div class="max-filter-buttons">
+      <button
+        type="submit"
+        id="save-entity"
+        data-cy="entityCreateSaveButton"
+        class="btn btn-primary">
+        <fa-icon icon="save"></fa-icon>&nbsp;<span> Pesquisar </span>
+      </button>
+
+      <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="cleanFilter()">
+        <fa-icon icon="ban"></fa-icon>&nbsp;<span> Limpar Filtro </span>
+      </button>
+    </div>
+
+  </form>
+</div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { isPresent } from 'app/core/util/operators';
@@ -38,6 +38,10 @@ export class PersonService {
     return this.http.get<IPerson>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  findAllPersons(params: HttpParams): Observable<IPerson[]> {
+    return this.http.get<IPerson[]>(`${this.resourceUrl}/persons`, { params });
+  }
+
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http.get<IPerson[]>(this.resourceUrl, { params: options, observe: 'response' });
@@ -47,7 +51,7 @@ export class PersonService {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  addEmpreendimentoToCollectionIfMissing(
+  addPersonToCollectionIfMissing(
     personCollection: IPerson[],
     ...personsToCheck: (IPerson | null | undefined)[]
   ): IPerson[] {

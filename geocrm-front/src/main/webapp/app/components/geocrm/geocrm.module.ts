@@ -8,6 +8,7 @@ import { MaxMapComponent } from './max-map/max-map.component';
 import { PersonFilterComponent } from './person-filter/person-filter.component';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { GeocrmRoutingModule } from './route/geocrm-routing.module';
+import { AddressFormComponent } from './person-form/address-form/address-form.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { GeocrmRoutingModule } from './route/geocrm-routing.module';
     MaxMapComponent,
     PersonFormComponent,
     PersonFilterComponent,
-    PersonListComponent
+    PersonListComponent,
+    AddressFormComponent
   ]
 })
 export class GeocrmModule { }
