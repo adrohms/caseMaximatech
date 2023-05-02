@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { PersonService } from '../services/person.service';
 import { IPerson } from '../models/Person.model';
+import { IPage } from 'app/shared/types/page.interface';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { IPerson } from '../models/Person.model';
 })
 export class PersonFilterComponent implements OnInit {
 
-  @Output() personsOnFilter = new EventEmitter<IPerson[]>();
+  @Output() personsOnFilter = new EventEmitter<IPage<IPerson>>();
   public id?: string | null;
 
   personFilterForm = this.fb.group({
@@ -33,7 +34,7 @@ export class PersonFilterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log("Ops!");
+    this.applyFilter();
   }
 
   applyFilter(): void {
@@ -58,5 +59,4 @@ export class PersonFilterComponent implements OnInit {
       .set('email', person.email ?? '')
       .set('phone', person.phone ?? '')
   }
-
 }

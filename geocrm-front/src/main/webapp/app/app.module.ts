@@ -26,7 +26,6 @@ import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 
-// jhipster-needle-angular-add-module-import JHipster will add new module here
 @NgModule({
   imports: [
     BrowserModule,
@@ -38,7 +37,7 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
     HttpClientModule,
     NgxWebstorageModule.forRoot({ prefix: 'max', separator: '-', caseSensitive: true }),
     GeocrmModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     Title,

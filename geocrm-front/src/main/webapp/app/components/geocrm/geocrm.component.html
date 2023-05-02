@@ -1,4 +1,4 @@
-<div class="max-container" multi>
+<div class="max-container">
 
   <mat-expansion-panel class="max-panel">
     <mat-expansion-panel-header class="max-panel-head">
@@ -8,7 +8,9 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <max-person-filter></max-person-filter>
+    <max-person-filter
+      (personsOnFilter)="getPersons($event)">
+    </max-person-filter>
   </mat-expansion-panel>
 
   <mat-expansion-panel class="max-panel">
@@ -30,7 +32,7 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <max-map></max-map>
+    <max-map [addresses]="addresses"></max-map>
   </mat-expansion-panel>
 
 </div>

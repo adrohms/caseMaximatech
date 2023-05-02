@@ -3,14 +3,13 @@ Main page styles
 ========================================================================== */
 
 .max-img {
-  height: 500px;
+  height: 300px;
   width: 500px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../content/images/max-roteirizador.png') no-repeat center center;
   background-size: contain;
 }
-
 
 .max-content {
   display: flex;
@@ -31,7 +30,6 @@ p {
   flex-direction: column;
   align-items: center;
 }
-
 
 button {
   width: 200px;

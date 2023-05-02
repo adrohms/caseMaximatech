@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import { IPerson, getPersonId } from '../models/Person.model';
+import { IPage } from 'app/shared/types/page.interface';
 
 export type EntityResponseType = HttpResponse<IPerson>;
 export type EntityArrayResponseType = HttpResponse<IPerson[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PersonService {
+
   protected resourceUrl = this.applicationConfigService.getEndpointFor('api/person');
+  private persons = new BehaviorSubject<IPage<IPerson> | null>(null);
+  public persons$ = this.persons.asObservable();
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
+
+  setPaginatedPersons(persons: IPage<IPerson>): void {
+    this.persons.next(persons);
+  }
 
   create(person: IPerson): Observable<EntityResponseType> {
     return this.http.post<IPerson>(this.resourceUrl, person, { observe: 'response' });
@@ -38,8 +46,8 @@ export class PersonService {
     return this.http.get<IPerson>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  findAllPersons(params: HttpParams): Observable<IPerson[]> {
-    return this.http.get<IPerson[]>(`${this.resourceUrl}/persons`, { params });
+  findAllPersons(params: HttpParams): Observable<IPage<IPerson>> {
+    return this.http.get<IPage<IPerson>>(`${this.resourceUrl}/persons`, { params });
   }
 
   query(req?: any): Observable<EntityArrayResponseType> {

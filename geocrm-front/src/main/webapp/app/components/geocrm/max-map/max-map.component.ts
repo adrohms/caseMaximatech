@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IAddress } from '../models/Address.model';
 
 @Component({
   selector: 'max-map',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaxMapComponent implements OnInit {
 
+  @Input() addresses?: IAddress[];
+
   ngOnInit(): void {
-    console.log("Ops!");
+    console.log(this.addresses);
   }
 
 }

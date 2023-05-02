@@ -14,7 +14,9 @@ import { SortDirective } from './sort/sort.directive';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatTableModule,
+    MatInputModule
   ],
   declarations: [
     AlertComponent,
@@ -51,7 +55,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatTableModule,
+    MatInputModule
   ],
 })
 export class SharedModule {}
