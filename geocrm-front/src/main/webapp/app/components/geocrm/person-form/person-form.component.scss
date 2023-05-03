@@ -1,0 +1,65 @@
+.max-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.max-title {
+
+}
+
+.max-form-filter-container {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  width: 90%;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 0.5px 0 1px #615c5c81;
+
+  .max-filter-buttons {
+    flex-grow: 1;
+  }
+
+  .max-filter-buttons:last-child {
+    flex-basis: 100%;
+    display: flex;
+    gap: 16px;
+
+    button {
+      margin-top: 16px;
+      display: flex;
+      justify-items: center;
+      align-content: center;
+      gap: 8px;
+
+      span {
+        display: flex;
+        align-self: center;
+        justify-self: center;
+      }
+    }
+  }
+
+  .max-input-style {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    label {
+      font-weight: 500;
+    }
+
+    input {
+      position: relative;
+      border-bottom: 1px rgba(34, 33, 33, 0.568) solid;
+    }
+  }
+}
+
+
+
+

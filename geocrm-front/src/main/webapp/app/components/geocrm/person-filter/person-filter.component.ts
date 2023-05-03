@@ -1,11 +1,10 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-
-import { PersonService } from '../services/person.service';
-import { IPerson } from '../models/Person.model';
 import { IPage } from 'app/shared/types/page.interface';
+
+import { IPerson } from '../models/Person.model';
+import { PersonService } from '../services/person.service';
 
 
 @Component({
@@ -28,7 +27,6 @@ export class PersonFilterComponent implements OnInit {
   })
 
   constructor(
-    private route: ActivatedRoute,
     private fb: FormBuilder,
     private personService: PersonService
   ) {}

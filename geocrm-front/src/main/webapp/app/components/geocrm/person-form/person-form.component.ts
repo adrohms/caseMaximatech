@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { PersonService } from '../services/person.service';
 
 @Component({
   selector: 'max-person-form',
@@ -12,17 +13,30 @@ export class PersonFormComponent implements OnInit {
   public id?: string | null;
 
   personForm = this.fb.group({
-    id: [],
-    name: []
+    id: [''],
+    code: [''],
+    name: [''],
+    taxId: [''],
+    email: [''],
+    phone: ['']
   })
 
   constructor(
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private personService: PersonService
   ) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log(this.id);
+  }
+
+  savePerson(): void {
+    this.personService;
+  }
+
+  cleanForm(): void {
+    this.personForm.reset();
   }
 }
