@@ -1,10 +1,12 @@
 <div class="max-container">
+  <max-alert class="row col-3 max-alert"></max-alert>
+
   <div class="max-title">
     <h2>Formulario de cadastro de clientes</h2>
   </div>
 
   <form class="max-form-filter-container" name="personFormFilter" role="form" [formGroup]="personForm" (ngSubmit)="savePerson()">
-    <mat-form-field>
+    <mat-form-field *ngIf="person?.id">
       <div class="max-input-style">
         <label>Id:</label>
         <input matInput formControlName="id">

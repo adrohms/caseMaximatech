@@ -14,7 +14,7 @@ export class GeocrmRoutingResolveService implements Resolve<IPerson> {
 
   resolve(route: ActivatedRouteSnapshot): Observable<IPerson> | Observable<never> {
     const id = route.params['id'];
-    if (id) {
+    if (id && id !== 'new') {
       return this.personService.find(id).pipe(
         mergeMap((person: HttpResponse<Person>) => {
           if (person.body) {

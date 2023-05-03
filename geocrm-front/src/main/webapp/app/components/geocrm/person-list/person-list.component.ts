@@ -56,7 +56,7 @@ export class PersonListComponent implements OnInit {
   }
 
   createPerson(): void {
-    this.router.navigate(['/geo-crm/form/']);
+    this.router.navigate(['/geo-crm/form/new']);
   }
 
   editPerson(person: IPerson): void {

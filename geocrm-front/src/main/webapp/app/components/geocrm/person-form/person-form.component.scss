@@ -5,9 +5,6 @@
   flex-direction: column;
 }
 
-.max-title {
-
-}
 
 .max-form-filter-container {
   padding-top: 16px;
@@ -60,6 +57,10 @@
   }
 }
 
-
+.max-alert {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 
 
