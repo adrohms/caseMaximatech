@@ -1,34 +1,45 @@
-<div>
+<div class="max-container">
   <form class="max-form-filter-container" name="personFormFilter" role="form" [formGroup]="personFilterForm" (ngSubmit)="applyFilter()">
-
-    <mat-form-field appearance="outline">
-      <label>Id</label>
-      <input matInput formControlName="id">
+    <mat-form-field>
+      <div class="max-input-style">
+        <label>Id:</label>
+        <input matInput formControlName="id">
+      </div>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <label>Código</label >
-      <input matInput formControlName="code">
+    <mat-form-field>
+      <div class="max-input-style">
+        <label>Código:</label >
+        <input matInput formControlName="code">
+      </div>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <label>Nome</label>
-      <input matInput formControlName="name">
+    <mat-form-field>
+      <div class="max-input-style">
+        <label>Nome:</label>
+        <input matInput formControlName="name">
+      </div>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <label>CNPJ</label>
-      <input matInput formControlName="taxId">
+    <mat-form-field>
+      <div class="max-input-style">
+        <label>CNPJ:</label>
+        <input matInput formControlName="taxId">
+      </div>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <label>Email</label >
-      <input matInput formControlName="email" type="email">
+    <mat-form-field>
+      <div class="max-input-style">
+        <label>Email:</label >
+        <input matInput formControlName="email" type="email">
+      </div>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <label>Telefone</label>
-      <input matInput formControlName="phone">
+    <mat-form-field>
+      <div class="max-input-style">
+        <label>Telefone:</label>
+        <input matInput formControlName="phone">
+      </div>
     </mat-form-field>
 
     <div class="max-filter-buttons">
@@ -36,7 +47,7 @@
         type="submit"
         id="save-entity"
         data-cy="entityCreateSaveButton"
-        class="btn btn-primary">
+        class="btn btn-outline-dark">
         <mat-icon class="mat-18">search</mat-icon>
         <span>Buscar</span>
       </button>

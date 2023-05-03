@@ -2,7 +2,12 @@
   padding-top: 16px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 16px;
+
+  mat-form-field {
+    flex: 1;
+  }
 
   .max-filter-buttons {
     flex-grow: 1;
@@ -10,10 +15,35 @@
 
   .max-filter-buttons:last-child {
     flex-basis: 100%;
+    display: flex;
+    gap: 16px;
+
     button {
+      display: flex;
       justify-items: center;
       align-content: center;
     }
   }
 
+}
+
+.max-container {
+  width: 100%;
+  padding: 16px;
+}
+
+
+.max-input-style {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  label {
+    font-weight: 500;
+  }
+
+  input {
+    position: relative;
+    border-bottom: 1px rgba(34, 33, 33, 0.568) solid;
+  }
 }
