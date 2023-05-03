@@ -5,6 +5,7 @@ import com.maxima.geocrm.domain.person.aggregate.Address;
 import com.maxima.geocrm.repository.PersonRepository;
 import com.maxima.geocrm.service.dto.PersonDTO;
 import com.maxima.geocrm.service.mapper.ObjectMapper;
+import com.maxima.geocrm.web.rest.errors.BadRequestAlertException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,10 +19,16 @@ public class PersonService {
     @Autowired
     private ObjectMapper objectMapper;
 
+    private static final String ENTITY_NAME = "max_person";
+
     public Person createPerson(PersonDTO personDTO) {
         Person person = objectMapper.dtoToEntity(personDTO);
         person.getAddresses().forEach(address -> address.setPerson(person));
-        return this.personRepository.save(person);
+        try {
+            return this.personRepository.save(person);
+        } catch (Exception e) {
+            throw new BadRequestAlertException("Campo invalido em ", ENTITY_NAME, " ");
+        }
     }
 
     public void updatePerson(PersonDTO personDTO) {

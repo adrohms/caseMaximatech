@@ -1,0 +1,4 @@
+-- fixing sequence generator
+ALTER SEQUENCE person_sequence RESTART 100 INCREMENT BY 1;
+ALTER SEQUENCE address_sequence RESTART 100 INCREMENT BY 1;
+ALTER SEQUENCE user_sequence RESTART 100 INCREMENT BY 1;
