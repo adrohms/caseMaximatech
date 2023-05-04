@@ -1,5 +1,6 @@
 package com.maxima.geocrm.web.rest.person;
 
+import com.maxima.geocrm.config.Constants;
 import com.maxima.geocrm.domain.person.Person;
 import com.maxima.geocrm.repository.PersonRepository;
 import com.maxima.geocrm.security.AuthoritiesConstants;
@@ -22,6 +23,7 @@ import tech.jhipster.web.util.ResponseUtil;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -112,4 +114,14 @@ public class PersonResource {
         return ResponseUtil.wrapOrNotFound(person);
     }
 
+    @DeleteMapping("/person/{id}")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
+    public ResponseEntity<Void> deletePerson(@PathVariable Long id) {
+        log.debug("REST request to delete person: {}", id);
+        personRepository.deleteById(id);
+        return ResponseEntity
+            .noContent()
+            .headers(HeaderUtil.createAlert(applicationName, "A person is deleted with identifier " + id, id.toString()))
+            .build();
+    }
 }
