@@ -51,14 +51,13 @@
       </mat-form-field>
 
       <div class="max-addresses">
-        <button type="button" class="btn btn-dark btn-sm" (click)="addNewAddress()">+ Adicionar Endereço</button>
-        <div *ngFor="let address of addresses.value" class="max-address">
+        <div *ngFor="let address of addressFormGroupList; " class="max-address">
           <legend>Endereço: </legend>
           <max-address-form
-            [address]="address"
-          >
+            [addressForm]="address">
           </max-address-form>
         </div>
+        <button type="button" class="btn btn-dark max-add-address-btn" (click)="addNewAddress()">+ Adicionar Endereço</button>
       </div>
 
       <div class="max-filter-buttons">

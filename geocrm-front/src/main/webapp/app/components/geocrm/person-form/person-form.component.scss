@@ -14,7 +14,7 @@ fieldset {
 }
 
 .max-form-filter-container {
-  padding-top: 16px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -67,17 +67,19 @@ fieldset {
 }
 
 .max-addresses {
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
 
   .max-address {
     box-shadow: 0 0.5px 0 1px #615c5c81;
     border-radius: 8px;
     padding: 16px;
 
-    button {
-      width: 50%;
+    .max-add-address-btn {
+      width: 30%;
     }
   }
 }

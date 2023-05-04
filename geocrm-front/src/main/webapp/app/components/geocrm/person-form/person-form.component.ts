@@ -41,11 +41,22 @@ export class PersonFormComponent implements OnInit {
       if(person.id != null) { this.isToUpdate = true; }
       this.person = person;
       this.createFormFromPerson(person);
-    })
+    });
+
+
   }
 
   get addresses(): FormArray {
     return this.personForm.get('addresses') as FormArray;
+  }
+
+  get addressFormGroupList(): Array<FormGroup> {
+    const groupList: Array<FormGroup> = [];
+    this.addresses.controls.forEach((control: any) => {
+      groupList.push(control);
+    });
+
+    return groupList;
   }
 
   createFormFromPerson(person: IPerson): void {
