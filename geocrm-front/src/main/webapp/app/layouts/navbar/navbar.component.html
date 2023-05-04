@@ -27,7 +27,8 @@
           </a>
         </li>
         <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <li *maxHasAnyAuthority="'ROLE_ADMIN'"
+            class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/geo-crm" (click)="collapseNavbar()">
             <span>
               <fa-icon icon="map-location-dot"></fa-icon>
