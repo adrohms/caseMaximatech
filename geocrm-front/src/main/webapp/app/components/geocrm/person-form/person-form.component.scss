@@ -5,6 +5,13 @@
   flex-direction: column;
 }
 
+fieldset {
+  width: 90%;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 0.5px 0 1px #615c5c81;
+
+}
 
 .max-form-filter-container {
   padding-top: 16px;
@@ -12,10 +19,6 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  width: 90%;
-  padding: 32px;
-  border-radius: 8px;
-  box-shadow: 0 0.5px 0 1px #615c5c81;
 
   .max-filter-buttons {
     flex-grow: 1;
@@ -62,5 +65,22 @@
   right: 0;
   top: 0;
 }
+
+.max-addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .max-address {
+    box-shadow: 0 0.5px 0 1px #615c5c81;
+    border-radius: 8px;
+    padding: 16px;
+
+    button {
+      width: 50%;
+    }
+  }
+}
+
 
 

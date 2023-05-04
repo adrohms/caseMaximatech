@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
+import { IAddress } from '../models/Address.model';
 import { PersonService } from '../services/person.service';
 import { AlertService } from './../../../core/util/alert.service';
 import { IPerson } from './../models/Person.model';
@@ -21,7 +22,8 @@ export class PersonFormComponent implements OnInit {
     name: [''],
     taxId: [''],
     email: [''],
-    phone: ['']
+    phone: [''],
+    addresses: new FormArray([])
   });
 
   public person: IPerson | null = null;
@@ -42,6 +44,10 @@ export class PersonFormComponent implements OnInit {
     })
   }
 
+  get addresses(): FormArray {
+    return this.personForm.get('addresses') as FormArray;
+  }
+
   createFormFromPerson(person: IPerson): void {
     this.personForm = this.fb.group({
       id: [person.id],
@@ -49,7 +55,8 @@ export class PersonFormComponent implements OnInit {
       name: [person.name],
       taxId: [person.taxId],
       email: [person.email],
-      phone: [person.phone]
+      phone: [person.phone],
+      addresses: this.createAddressesFormArray(person.addresses)
     })
   }
 
@@ -61,14 +68,42 @@ export class PersonFormComponent implements OnInit {
     });
     } else {
       this.personService.create(this.personForm.value).subscribe({
-      next: () => this.onSaveSuccess(),
-      error: () => this.onSaveError()
-    });
+        next: () => this.onSaveSuccess(),
+        error: () => this.onSaveError()
+      });
     }
   }
 
   cleanForm(): void {
     this.personForm.reset();
+  }
+
+  addNewAddress(): void {
+    (this.personForm.get('addresses') as FormArray)
+      .push(this.createAddressForm());
+  }
+
+  createAddressesFormArray(addresses?: IAddress[] | null): FormArray {
+    const addressesFormArray = new FormArray<any>([]);
+    if(addresses && addresses.length > 0) {
+      addresses.forEach(address => {
+        addressesFormArray.push(this.createAddressForm(address))
+      })
+    }
+    return addressesFormArray;
+  }
+
+  createAddressForm(address?: IAddress): FormGroup {
+    return this.fb.group({
+      id: [address?.id ?? ''],
+      street: [address?.street ?? ''],
+      sector: [address?.sector ?? ''],
+      city: [address?.city ?? ''],
+      state: [address?.state ?? ''],
+      contry: [address?.contry ?? ''],
+      latitude: [address?.latitude ?? ''],
+      longitude: [address?.longitude ?? '']
+    })
   }
 
   private onSaveSuccess(): void {

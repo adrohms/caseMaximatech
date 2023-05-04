@@ -1,0 +1,29 @@
+
+.max-form-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+
+  .max-input-style {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    label {
+      font-weight: 500;
+    }
+
+    input {
+      position: relative;
+      border-bottom: 1px rgba(34, 33, 33, 0.568) solid;
+    }
+  }
+}
+
+
+
+
+

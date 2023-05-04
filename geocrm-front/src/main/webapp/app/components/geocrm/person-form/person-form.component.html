@@ -2,67 +2,82 @@
   <max-alert class="row col-3 max-alert"></max-alert>
 
   <div class="max-title">
-    <h2>Formulario de cadastro de clientes</h2>
+    <h2>Cadastro de Clientes</h2>
   </div>
 
-  <form class="max-form-filter-container" name="personFormFilter" role="form" [formGroup]="personForm" (ngSubmit)="savePerson()">
-    <mat-form-field *ngIf="person?.id">
-      <div class="max-input-style">
-        <label>Id:</label>
-        <input matInput formControlName="id">
+  <fieldset>
+    <legend>Dados pessoais: </legend>
+    <form class="max-form-filter-container" name="personFormFilter" role="form" [formGroup]="personForm" (ngSubmit)="savePerson()">
+      <mat-form-field *ngIf="person?.id">
+        <div class="max-input-style">
+          <label>Id:</label>
+          <input matInput formControlName="id">
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <div class="max-input-style">
+          <label>Código:</label >
+          <input matInput formControlName="code">
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <div class="max-input-style">
+          <label>Nome:</label>
+          <input matInput formControlName="name">
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <div class="max-input-style">
+          <label>CNPJ:</label>
+          <input matInput formControlName="taxId">
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <div class="max-input-style">
+          <label>Email:</label >
+          <input matInput formControlName="email" type="email">
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <div class="max-input-style">
+          <label>Telefone:</label>
+          <input matInput formControlName="phone">
+        </div>
+      </mat-form-field>
+
+      <div class="max-addresses">
+        <button type="button" class="btn btn-dark btn-sm" (click)="addNewAddress()">+ Adicionar Endereço</button>
+        <div *ngFor="let address of addresses.value" class="max-address">
+          <legend>Endereço: </legend>
+          <max-address-form
+            [address]="address"
+          >
+          </max-address-form>
+        </div>
       </div>
-    </mat-form-field>
 
-    <mat-form-field>
-      <div class="max-input-style">
-        <label>Código:</label >
-        <input matInput formControlName="code">
+      <div class="max-filter-buttons">
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          class="btn btn-outline-dark">
+          <mat-icon class="mat-18">save</mat-icon>
+          <span> Salvar </span>
+        </button>
+
+        <button type="button" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="cleanForm()">
+          <mat-icon class="mat-18">delete</mat-icon>
+          <span>Limpar</span>
+        </button>
       </div>
-    </mat-form-field>
 
-    <mat-form-field>
-      <div class="max-input-style">
-        <label>Nome:</label>
-        <input matInput formControlName="name">
-      </div>
-    </mat-form-field>
+    </form>
+  </fieldset>
 
-    <mat-form-field>
-      <div class="max-input-style">
-        <label>CNPJ:</label>
-        <input matInput formControlName="taxId">
-      </div>
-    </mat-form-field>
-
-    <mat-form-field>
-      <div class="max-input-style">
-        <label>Email:</label >
-        <input matInput formControlName="email" type="email">
-      </div>
-    </mat-form-field>
-
-    <mat-form-field>
-      <div class="max-input-style">
-        <label>Telefone:</label>
-        <input matInput formControlName="phone">
-      </div>
-    </mat-form-field>
-
-    <div class="max-filter-buttons">
-      <button
-        type="submit"
-        id="save-entity"
-        data-cy="entityCreateSaveButton"
-        class="btn btn-outline-dark">
-        <mat-icon class="mat-18">save</mat-icon>
-        <span> Salvar </span>
-      </button>
-
-      <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="cleanForm()">
-        <mat-icon class="mat-18">delete</mat-icon>
-        <span>Limpar</span>
-      </button>
-    </div>
-
-  </form>
 </div>

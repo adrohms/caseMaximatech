@@ -1,3 +1,10 @@
+.max-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .max-form-filter-container {
   padding-top: 16px;
   display: flex;
