@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { IPerson } from '../models/Person.model';
 import { PersonService } from '../services/person.service';
 import { Router } from '@angular/router';
+import { AlertService } from 'app/core/util/alert.service';
+import { IPage } from 'app/shared/types/page.interface';
 
 @Component({
   selector: 'max-person-list',
@@ -28,9 +30,12 @@ export class PersonListComponent implements OnInit {
 
   public pageEvent?: PageEvent;
 
+  @Output() loadPersonsRequest = new EventEmitter();
+
   constructor(
     private personService: PersonService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -64,7 +69,44 @@ export class PersonListComponent implements OnInit {
   }
 
   deletePerson(person: IPerson): void {
-    this.personService
+    if(person.id) {
+      this.personService.delete(person.id).subscribe({
+        next: () => {
+          this.onSaveSuccess();
+          let personsWithoutRemoved: IPage<IPerson> | null = null;
+          this.personService.persons$.subscribe(persons => {
+            if(persons) {
+              personsWithoutRemoved = persons;
+              personsWithoutRemoved.content = persons.content.filter(content => content.id !== person.id);
+
+            }
+          })
+          this.personService.setPaginatedPersons(personsWithoutRemoved!);
+        },
+        error: () => this.onSaveError()
+      });
+    }
+  }
+
+  private onSaveSuccess(): void {
+    this.alert.addAlert(
+      {
+          type: 'success',
+          message: 'Cliente deletado com sucesso!',
+          timeout: 5000,
+          toast: false
+      });
+  }
+
+  private onSaveError(): void {
+    this.alert.addAlert(
+      {
+          type: 'warning',
+          message: 'Erro ao deletar o cliente',
+          timeout: 5000,
+          toast: false
+      }
+    );
   }
 
 }

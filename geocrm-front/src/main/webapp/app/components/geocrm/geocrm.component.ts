@@ -11,17 +11,13 @@ import { PersonService } from './services/person.service';
   templateUrl: './geocrm.component.html',
   styleUrls: ['./geocrm.component.scss']
 })
-export class GeocrmComponent implements OnInit {
+export class GeocrmComponent {
 
   @ViewChild(MatAccordion) accordion?: MatAccordion;
 
   public addresses?: IAddress[];
 
   constructor(private personService: PersonService) {}
-
-  ngOnInit(): void {
-    console.log("Almost there!");
-  }
 
   getPersons(persons: IPage<IPerson>): void {
     const addressList: IAddress[] = [];
@@ -33,6 +29,5 @@ export class GeocrmComponent implements OnInit {
       })
     })
     this.personService.setPaginatedPersons(persons);
-
   }
 }
