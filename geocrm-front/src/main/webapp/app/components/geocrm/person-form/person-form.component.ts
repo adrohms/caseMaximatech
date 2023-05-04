@@ -111,6 +111,7 @@ export class PersonFormComponent implements OnInit {
       sector: [address?.sector ?? ''],
       city: [address?.city ?? ''],
       state: [address?.state ?? ''],
+      cep: [address?.cep ?? ''],
       contry: [address?.contry ?? ''],
       latitude: [address?.latitude ?? ''],
       longitude: [address?.longitude ?? '']

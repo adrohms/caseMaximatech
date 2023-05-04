@@ -4,6 +4,7 @@ export interface IAddress {
   sector?: string | null;
   city?: string | null;
   state?: string | null;
+  cep?: string | null;
   contry?: string | null;
   latitude?: number | null;
   longitude?: number | null;
@@ -16,6 +17,7 @@ export class Address implements IAddress {
     public sector?: string | null,
     public city?: string | null,
     public state?: string | null,
+    public cep?: string | null,
     public contry?: string | null,
     public latitude?: number | null,
     public longitude?: number | null
