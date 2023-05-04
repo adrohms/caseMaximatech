@@ -62,7 +62,7 @@ public class PersonResource {
             .body(newPerson);
     }
 
-    @PutMapping("/person")
+    @PutMapping("/person/{id}")
     @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Person> updatePerson(
         @PathVariable(value = "id", required = false) final Long id,
@@ -81,6 +81,7 @@ public class PersonResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
+        person.getAddresses().forEach(address -> address.setPerson(person));
         personRepository.save(person);
         return ResponseEntity
             .ok()
